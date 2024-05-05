@@ -1,5 +1,5 @@
 from typing import Union
-
+from pprint import pprint
 from fastapi import FastAPI
 from pydantic import BaseModel
 
@@ -9,6 +9,10 @@ app.last_msg = None
 
 class TradeRequest(BaseModel):
     msg: str
+    side: str # long /short
+    price: str
+
+
 
 
 @app.get("/")
@@ -20,6 +24,7 @@ def read_root():
 @app.post("/trade")
 def trade(request: TradeRequest):
     app.last_msg = request
+    print(pprint.pprint(request))
     return "ok"
 
 
