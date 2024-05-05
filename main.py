@@ -4,7 +4,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 
 app = FastAPI()
-app.last_msg = ""
+app.last_msg = None
 
 
 class TradeRequest(BaseModel):
