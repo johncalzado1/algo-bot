@@ -10,7 +10,7 @@ app.last_msg = None
 class TradeRequest(BaseModel):
     msg: str
     side: str # long /short
-    price: str
+    price: str = None
 
 
 
