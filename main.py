@@ -5,17 +5,17 @@ from fastapi import FastAPI
 app = FastAPI()
 
 
-last_msg = ""
+app.last_msg = ""
 
 @app.get("/")
 def read_root():
-    return last_msg
+    return app.last_msg
     # return {"Hello": "World"}
 
 
 @app.post("/trade")
 def trade(request):
-    last_msg = request
+    app.last_msg = request
 
 
 # @app.get("/items/{item_id}")
