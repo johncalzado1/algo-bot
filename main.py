@@ -24,7 +24,7 @@ def read_root():
 @app.post("/trade")
 def trade(request: TradeRequest):
     app.last_msg = request
-    print(pprint(request))
+    pprint(request)
     return "ok"
 
 
