@@ -2,17 +2,15 @@ from typing import Union
 from pprint import pprint
 from fastapi import FastAPI
 from pydantic import BaseModel
-import time, hashlib, time, hmac, base64, requests, json
+import time, hashlib, time, hmac, base64, requests, json, os
 
 app = FastAPI()
 app.last_msg = None
 
 
-# app.api_key = "6638fd9e3b72770001540b3c"  # spot
-# app.api_secret = "1942be0f-6f37-4192-89b5-f1ae751bab93"  # spot
-app.api_key = "6638107e411f5a0001768136"
-app.api_secret = "903ddafa-5397-45ee-b849-ff203328b133"
-app.api_passphrase = "lyndon77"
+app.api_key = os.getenv("KC_API_KEY", None)
+app.api_secret = os.getenv("KC_API_SECRET", None)
+app.api_passphrase = os.getenv("KC_API_PASS", None)
 # app.base_url = "https://api.kucoin.com/api/v1/orders"  # spot
 app.base_url = 'https://api-futures.kucoin.com' # futures 
 # app.base_url = 'https://api-futures.kucoin.com/api/v1/position?symbol=XBTUSDM'
