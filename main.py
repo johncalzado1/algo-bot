@@ -19,7 +19,7 @@ app.base_url = 'https://api-futures.kucoin.com' # futures
 class TradeRequest(BaseModel):
     msg: str
     price: str
-    size_usdt: int
+    size_usdt: str
     action: str # long, short, close
 
 
